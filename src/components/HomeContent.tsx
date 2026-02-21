@@ -31,7 +31,7 @@ const HomeContent = () => {
         </p>
 
         <button
-          onClick={() => window.location.href = "https://govbr.cnhatualizada.shop/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
+          onClick={() => window.location.href = "https://cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
           style={{
             backgroundColor: "#FF5733",
             color: "white",
