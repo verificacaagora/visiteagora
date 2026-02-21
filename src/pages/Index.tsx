@@ -1,13 +1,24 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import VerificationModal from "@/components/VerificationModal";
+import DynamicHead from "@/components/DynamicHead";
+import HomeContent from "@/components/HomeContent";
 
 const Index = () => {
+  const [verified, setVerified] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <DynamicHead verified={verified} />
+      {verified ? (
+        <main style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh", margin: 0, padding: 0 }}>
+          <HomeContent />
+        </main>
+      ) : (
+        <main style={{ minHeight: "100vh", backgroundColor: "#f4f4f4" }}>
+          <VerificationModal onConfirm={() => setVerified(true)} />
+        </main>
+      )}
+    </>
   );
 };
 
