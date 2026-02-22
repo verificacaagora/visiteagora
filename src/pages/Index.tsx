@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DynamicHead from "@/components/DynamicHead";
+import HomeContent from "@/components/HomeContent";
 import { Shield, CheckCircle } from "lucide-react";
 
 const Index = () => {
@@ -10,7 +11,7 @@ const Index = () => {
       <DynamicHead verified={verified} />
       {!verified ? (
         <main className="min-h-screen bg-background font-sans">
-          <HomeContentLazy onVerify={() => setVerified(true)} />
+          <HomeContent onVerify={() => setVerified(true)} />
         </main>
       ) : (
         <main className="min-h-screen bg-background font-sans flex flex-col">
@@ -49,15 +50,5 @@ const Index = () => {
     </>
   );
 };
-
-// Lazy import to prevent HomeContent from being in the initial DOM
-import { lazy, Suspense } from "react";
-const HomeContentComponent = lazy(() => import("@/components/HomeContent"));
-
-const HomeContentLazy = ({ onVerify }: { onVerify: () => void }) => (
-  <Suspense fallback={<div className="text-center p-10 text-muted-foreground">Carregando...</div>}>
-    <HomeContentComponent onVerify={onVerify} />
-  </Suspense>
-);
 
 export default Index;
