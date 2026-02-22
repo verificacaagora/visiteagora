@@ -1,4 +1,8 @@
-const HomeContent = () => {
+interface HomeContentProps {
+  onVerify: () => void;
+}
+
+const HomeContent = ({ onVerify }: HomeContentProps) => {
   return (
     <>
       <header
@@ -31,7 +35,7 @@ const HomeContent = () => {
         </p>
 
         <button
-          onClick={() => window.location.href = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
+          onClick={onVerify}
           style={{
             backgroundColor: "#FF5733",
             color: "white",

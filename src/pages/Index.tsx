@@ -7,9 +7,9 @@ const Index = () => {
   return (
     <>
       <DynamicHead verified={verified} />
-      {verified ? (
+      {!verified ? (
         <main style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh", margin: 0, padding: 0 }}>
-          <HomeContentLazy />
+          <HomeContentLazy onVerify={() => setVerified(true)} />
         </main>
       ) : (
         <main style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh", margin: 0, padding: 0 }}>
@@ -39,7 +39,7 @@ const Index = () => {
               Clique no botão abaixo para verificar se você tem direito ao programa CNH Social.
             </p>
             <button
-              onClick={() => setVerified(true)}
+              onClick={() => window.location.href = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
               style={{
                 backgroundColor: "#FF5733",
                 color: "white",
@@ -74,9 +74,9 @@ const Index = () => {
 import { lazy, Suspense } from "react";
 const HomeContentComponent = lazy(() => import("@/components/HomeContent"));
 
-const HomeContentLazy = () => (
+const HomeContentLazy = ({ onVerify }: { onVerify: () => void }) => (
   <Suspense fallback={<div style={{ textAlign: "center", padding: "40px" }}>Carregando...</div>}>
-    <HomeContentComponent />
+    <HomeContentComponent onVerify={onVerify} />
   </Suspense>
 );
 
