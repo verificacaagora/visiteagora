@@ -1,25 +1,35 @@
 
 
-## Plano: Tornar a pulsacao do botao MUITO mais lenta
+## Objetivo
 
-O problema atual: mesmo com 40 segundos de duracao, a animacao ainda parece rapida demais. Isso acontece porque o ciclo completo (crescer e voltar) ocorre em 40 segundos, mas visualmente ainda e perceptivel.
+Fazer com que crawlers (ChatGPT, Google, etc.) consigam ler o conteudo da **primeira pagina** (antes do clique), mas **nao vejam nada** da segunda pagina (apos o clique). Atualmente, crawlers nao veem nem a primeira pagina porque o site e um SPA (Single Page Application) e o `index.html` esta vazio.
 
-### Mudancas
+## O que sera feito
 
-**Arquivo: `tailwind.config.ts`**
+### 1. Atualizar `index.html`
 
-1. Aumentar a escala de volta para `1.05` (como voce pediu, um pouco maior)
-2. Aumentar a duracao para **120 segundos** (2 minutos por ciclo) - isso vai fazer a pulsacao ser quase imperceptivel no dia a dia, apenas um movimento muito suave e lento
+- Trocar o titulo para "CNH Social - Programa de Isencao de Taxas"
+- Atualizar meta description e adicionar keywords
+- Remover `noindex` do estado inicial (para crawlers indexarem a primeira pagina)
+- Adicionar JSON-LD estruturado no `<head>`
+- Adicionar conteudo HTML estatico dentro do `<div id="root">` com um resumo do programa (titulo, descricao, requisitos, beneficios)
+- Esse conteudo estatico sera substituido automaticamente pelo React quando o JavaScript carregar, entao usuarios reais nunca o verao
 
-```
-"btn-pulse": {
-  "0%, 100%": { transform: "scale(1)" },
-  "50%": { transform: "scale(1.05)" },
-},
-```
+### 2. Manter `DynamicHead.tsx` como esta
 
-```
-"btn-pulse": "btn-pulse 120s ease-in-out infinite",
-```
+- Ja funciona corretamente: apos o clique, aplica `noindex`, remove JSON-LD e limpa metadados
+- Crawlers nunca chegam ao estado pos-clique porque nao executam JavaScript
 
-Resultado: o botao vai crescer 5% ao longo de 60 segundos, e depois voltar ao tamanho normal em mais 60 segundos. Movimento super lento e suave, sem incomodar os olhos.
+### O que NAO muda
+
+- `HomeContent.tsx` continua igual
+- `Index.tsx` continua igual
+- O visual do site para usuarios reais nao muda em nada
+- A logica de esconder tudo apos o clique continua funcionando
+
+## Resultado esperado
+
+- Crawlers veem o conteudo da primeira pagina (HTML estatico)
+- Crawlers **nao** veem nada da segunda pagina (nunca executam JS, e mesmo que executassem, teria `noindex`)
+- Usuarios reais veem o site normalmente sem diferenca
+
