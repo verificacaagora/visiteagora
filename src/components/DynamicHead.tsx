@@ -6,7 +6,7 @@ interface DynamicHeadProps {
 
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
-    if (verified) {
+    if (!verified) {
       document.title = "CNH Social - Programa de Isenção de Taxas";
 
       setMeta("description", "Programa CNH Social para isenção de taxas na obtenção da Carteira Nacional de Habilitação para pessoas de baixa renda.");
