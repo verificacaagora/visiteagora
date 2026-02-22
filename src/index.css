@@ -108,5 +108,5 @@ All colors MUST be HSL.
 }
 
 .animate-btn-pulse {
-  animation: btn-pulse-slow 120s ease-in-out infinite;
+  animation: btn-pulse-slow 6s ease-in-out infinite;
 }
