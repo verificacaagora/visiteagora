@@ -72,7 +72,7 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        pulse: {
+        "btn-pulse": {
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.03)" },
         },
@@ -84,7 +84,7 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        pulse: "pulse 10s ease-in-out infinite",
+        "btn-pulse": "btn-pulse 10s ease-in-out infinite",
         "fade-in": "fade-in 0.5s ease-out forwards",
       },
     },

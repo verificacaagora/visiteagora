@@ -37,7 +37,7 @@ const Index = () => {
                 </p>
                 <button
                   onClick={() => window.location.href = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
-                  className="bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold block mx-auto shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:scale-105"
+                  className="bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold block mx-auto shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
                 >
                   Verificar agora
                 </button>
