@@ -37,7 +37,7 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           </p>
           <button
             onClick={onVerify}
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:scale-105"
+            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
           >
             Verificar agora
             <ArrowRight className="w-5 h-5" />
@@ -149,7 +149,7 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           </p>
           <button
             onClick={onVerify}
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-3 px-8 cursor-pointer rounded-lg text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:scale-105"
+            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-3 px-8 cursor-pointer rounded-lg text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
           >
             Verificar elegibilidade
             <ArrowRight className="w-5 h-5" />
