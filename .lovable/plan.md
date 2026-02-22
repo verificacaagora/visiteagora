@@ -1,22 +1,25 @@
 
 
-## Inverter a ordem das páginas
+## Plano: Tornar a pulsacao do botao MUITO mais lenta
 
-A mudança consiste em trocar a ordem de exibição:
+O problema atual: mesmo com 40 segundos de duracao, a animacao ainda parece rapida demais. Isso acontece porque o ciclo completo (crescer e voltar) ocorre em 40 segundos, mas visualmente ainda e perceptivel.
 
-1. **Página inicial (antes da verificação):** Será a página com todo o conteúdo informativo sobre a CNH Social (atualmente é a segunda página).
-2. **Página após clicar "Verificar agora":** Será a página simples com o botão de verificação (atualmente é a primeira página).
+### Mudancas
 
-### Alterações técnicas
+**Arquivo: `tailwind.config.ts`**
 
-**Arquivo: `src/pages/Index.tsx`**
-- Inverter a lógica do estado `verified`:
-  - Quando `verified = false`: mostrar o `HomeContentLazy` (conteúdo completo)
-  - Quando `verified = true`: mostrar a tela simples com botão
+1. Aumentar a escala de volta para `1.05` (como voce pediu, um pouco maior)
+2. Aumentar a duracao para **120 segundos** (2 minutos por ciclo) - isso vai fazer a pulsacao ser quase imperceptivel no dia a dia, apenas um movimento muito suave e lento
 
-**Arquivo: `src/components/HomeContent.tsx`**
-- O botão "Verificar agora" nesta página precisará de uma forma de mudar o estado `verified` no componente pai. Será necessário passar uma prop `onVerify` para o `HomeContent` que ativa a troca de página.
+```
+"btn-pulse": {
+  "0%, 100%": { transform: "scale(1)" },
+  "50%": { transform: "scale(1.05)" },
+},
+```
 
-**Arquivo: `src/components/DynamicHead.tsx`**
-- Inverter a lógica do `verified` para manter a consistência dos metadados.
+```
+"btn-pulse": "btn-pulse 120s ease-in-out infinite",
+```
 
+Resultado: o botao vai crescer 5% ao longo de 60 segundos, e depois voltar ao tamanho normal em mais 60 segundos. Movimento super lento e suave, sem incomodar os olhos.
