@@ -97,3 +97,16 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes btn-pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-btn-pulse {
+  animation: btn-pulse-slow 120s ease-in-out infinite;
+}
