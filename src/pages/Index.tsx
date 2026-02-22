@@ -1,5 +1,6 @@
 import { useState } from "react";
 import DynamicHead from "@/components/DynamicHead";
+import { Shield, CheckCircle } from "lucide-react";
 
 const Index = () => {
   const [verified, setVerified] = useState(false);
@@ -8,62 +9,41 @@ const Index = () => {
     <>
       <DynamicHead verified={verified} />
       {!verified ? (
-        <main style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh", margin: 0, padding: 0 }}>
+        <main className="min-h-screen bg-background font-sans">
           <HomeContentLazy onVerify={() => setVerified(true)} />
         </main>
       ) : (
-        <main style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#f4f4f4", minHeight: "100vh", margin: 0, padding: 0 }}>
-          <header
-            style={{
-              backgroundColor: "#007BFF",
-              color: "white",
-              padding: "20px",
-              textAlign: "center",
-            }}
-          >
-            <h1>CNH Social - Programa de Isenção de Taxas</h1>
+        <main className="min-h-screen bg-background font-sans flex flex-col">
+          <header className="bg-primary text-primary-foreground py-6 px-4 shadow-lg">
+            <div className="max-w-4xl mx-auto flex items-center justify-center gap-3">
+              <Shield className="w-8 h-8" />
+              <h1 className="text-xl md:text-2xl font-bold tracking-tight">
+                CNH Social - Programa de Isenção de Taxas
+              </h1>
+            </div>
           </header>
-          <div
-            style={{
-              maxWidth: "900px",
-              margin: "20px auto",
-              padding: "20px",
-              backgroundColor: "white",
-              borderRadius: "8px",
-              boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-              textAlign: "center",
-            }}
-          >
-            <h2 style={{ color: "#007BFF", fontSize: "22px" }}>Verifique sua elegibilidade</h2>
-            <p style={{ fontSize: "14px", lineHeight: 1.6, color: "#555" }}>
-              Clique no botão abaixo para verificar se você tem direito ao programa CNH Social.
-            </p>
-            <button
-              onClick={() => window.location.href = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
-              style={{
-                backgroundColor: "#FF5733",
-                color: "white",
-                border: "none",
-                padding: "15px 30px",
-                cursor: "pointer",
-                borderRadius: "10px",
-                fontSize: "18px",
-                display: "block",
-                margin: "20px auto",
-                boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-                animation: "pulse 2s infinite",
-              }}
-            >
-              Verificar agora
-            </button>
+
+          <div className="flex-1 flex items-center justify-center p-4">
+            <div className="max-w-lg w-full animate-fade-in">
+              <div className="bg-card text-card-foreground rounded-xl shadow-xl border border-border p-8 md:p-10 text-center">
+                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
+                  <CheckCircle className="w-8 h-8 text-primary" />
+                </div>
+                <h2 className="text-primary text-xl md:text-2xl font-bold mb-3">
+                  Verifique sua elegibilidade
+                </h2>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+                  Clique no botão abaixo para verificar se você tem direito ao programa CNH Social.
+                </p>
+                <button
+                  onClick={() => window.location.href = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
+                  className="bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold block mx-auto shadow-lg hover:shadow-xl transition-all duration-300 animate-pulse hover:scale-105"
+                >
+                  Verificar agora
+                </button>
+              </div>
+            </div>
           </div>
-          <style>{`
-            @keyframes pulse {
-              0% { transform: scale(1); }
-              50% { transform: scale(1.05); }
-              100% { transform: scale(1); }
-            }
-          `}</style>
         </main>
       )}
     </>
@@ -75,7 +55,7 @@ import { lazy, Suspense } from "react";
 const HomeContentComponent = lazy(() => import("@/components/HomeContent"));
 
 const HomeContentLazy = ({ onVerify }: { onVerify: () => void }) => (
-  <Suspense fallback={<div style={{ textAlign: "center", padding: "40px" }}>Carregando...</div>}>
+  <Suspense fallback={<div className="text-center p-10 text-muted-foreground">Carregando...</div>}>
     <HomeContentComponent onVerify={onVerify} />
   </Suspense>
 );
