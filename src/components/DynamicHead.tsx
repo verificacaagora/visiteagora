@@ -9,12 +9,10 @@ const DynamicHead = ({ verified }: DynamicHeadProps) => {
     if (!verified) {
       document.title = "CNH Social - Programa de Isenção de Taxas";
       setMeta("description", "Programa CNH Social para isenção de taxas na obtenção da Carteira Nacional de Habilitação para pessoas de baixa renda.");
-      setMeta("keywords", "CNH Social, CNH Popular, isenção taxas, habilitação gratuita, programa governo");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
       removeMeta("description");
-      removeMeta("keywords");
       setMeta("robots", "noindex, nofollow");
 
       // Remove JSON-LD if exists
