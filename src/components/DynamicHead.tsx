@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "CNH Social - Programa de Isenção de Taxas";
-      setMeta("description", "Programa CNH Social para isenção de taxas na obtenção da Carteira Nacional de Habilitação para pessoas de baixa renda.");
-      setMeta("keywords", "CNH Social, CNH Popular, CNH gratuita, isenção taxas CNH, habilitação gratuita, programa governo CNH, carteira de motorista grátis, CNH baixa renda, como tirar CNH de graça, programa social habilitação");
+      document.title = "Habilitação Gratuita 2026 - Programa CNH Popular";
+      setMeta("description", "Saiba como conseguir sua carteira de motorista sem custo pelo programa de habilitação popular do governo. Confira os critérios e o passo a passo para se candidatar.");
+      setMeta("keywords", "habilitação gratuita, carteira de motorista grátis, CNH Popular, programa governo habilitação, tirar CNH sem pagar, CNH gratuita 2026, isenção habilitação, programa social CNH, como conseguir CNH grátis, habilitação baixa renda");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
