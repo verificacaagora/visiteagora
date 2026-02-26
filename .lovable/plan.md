@@ -1,29 +1,33 @@
 
 
-## Limpeza de Metadados e Cache
+## Diferenciar o HTML para Crawlers
 
-### O que sera feito
+Vou reescrever o conteudo estatico do `index.html` (que e o que crawlers leem) usando textos diferentes, sinonimos, outra estrutura e ordem de secoes -- tudo sobre o mesmo assunto (CNH Social / habilitacao gratuita). Tambem vou mudar o titulo, description e keywords para variantes diferentes.
 
-**1. Adicionar headers de controle de cache no `index.html`**
-- Adicionar meta tags para forcar navegadores e crawlers a nao usar versoes em cache:
-  - `Cache-Control: no-cache, no-store, must-revalidate`
-  - `Pragma: no-cache`
-  - `Expires: 0`
+### Mudancas no `index.html`
 
-**2. Remover metadados antigos desnecessarios do `index.html`**
-- Remover a tag `keywords` (Google ignora essa tag desde 2009, so ocupa espaco)
-- Manter `title` e `description` pois sao uteis para SEO
+**Metadata (head)**
+- Titulo: "Habilitacao Gratuita 2026 - Programa CNH Popular" (em vez de "CNH Social - Programa de Isencao de Taxas")
+- Description: texto reescrito com outras palavras
+- Keywords: mesmas palavras-chave mas em ordem diferente e com algumas variantes novas
 
-**3. Atualizar `DynamicHead.tsx`**
-- Remover a logica que injeta `keywords` (consistencia com o index.html)
-- Manter todo o resto igual (noindex na segunda pagina, title, description)
+**Conteudo estatico (body) -- completamente reescrito**
+- Header: "Programa de Habilitacao Gratuita para Brasileiros"
+- Secoes reorganizadas com titulos e textos diferentes:
+  - "Como funciona o programa?" (em vez de "O que e a CNH Social?")
+  - "Quem pode participar?" (em vez de "Requisitos para participar")
+  - "Passo a passo da inscricao" (em vez de "Como se inscrever?")
+  - "Vantagens do programa" (em vez de "Beneficios")
+  - "Informacoes importantes" (em vez de "Cuidados e Consideracoes")
+- Textos dos paragrafos reescritos com sinonimos mantendo o mesmo significado
+- Estilos inline levemente diferentes (cores, paddings)
+- Footer com texto diferente
 
-### O que NAO sera alterado
-- A tag `noindex` na segunda pagina (via DynamicHead)
-- Nenhuma funcionalidade (clique, redirecionamento, verificacao)
-- O conteudo estatico do HTML para crawlers
+**O `DynamicHead.tsx` tambem sera atualizado** para usar o novo titulo e description (consistencia)
 
-### Arquivos afetados
-- `index.html` - adicionar meta tags de cache, remover keywords
-- `src/components/DynamicHead.tsx` - remover keywords
+### O que NAO muda
+- A funcionalidade do site (botoes, redirecionamento, verificacao)
+- O `HomeContent.tsx` (o que o usuario ve apos o React carregar)
+- A logica de noindex na segunda pagina
+- O assunto continua sendo CNH Social / habilitacao gratuita
 
