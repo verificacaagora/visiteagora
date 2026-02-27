@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "Habilitação Gratuita 2026 - Programa CNH Popular";
-      setMeta("description", "Saiba como conseguir sua carteira de motorista sem custo pelo programa de habilitação popular do governo. Confira os critérios e o passo a passo para se candidatar.");
-      setMeta("keywords", "habilitação gratuita, carteira de motorista grátis, CNH Popular, programa governo habilitação, tirar CNH sem pagar, CNH gratuita 2026, isenção habilitação, programa social CNH, como conseguir CNH grátis, habilitação baixa renda");
+      document.title = "CNH Gratuita 2026 - Saiba Como Obter Sua Habilitação Sem Custo";
+      setMeta("description", "Descubra o passo a passo para tirar sua carteira de habilitação sem pagar nenhuma taxa. Programa do governo federal voltado para famílias de baixa renda em todo o Brasil.");
+      setMeta("keywords", "CNH gratuita 2026, habilitação sem custo, programa CNH popular, carteira de motorista grátis, como tirar CNH de graça, isenção taxas habilitação, CNH para baixa renda, programa social habilitação, CNH governo federal, habilitação popular Brasil");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
