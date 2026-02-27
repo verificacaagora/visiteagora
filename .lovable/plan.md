@@ -1,33 +1,40 @@
 
 
-## Diferenciar o HTML para Crawlers
+## Reescrever HTML Estatico + Cache + Keywords
 
-Vou reescrever o conteudo estatico do `index.html` (que e o que crawlers leem) usando textos diferentes, sinonimos, outra estrutura e ordem de secoes -- tudo sobre o mesmo assunto (CNH Social / habilitacao gratuita). Tambem vou mudar o titulo, description e keywords para variantes diferentes.
+Vou reescrever completamente o conteudo estatico do `index.html` e atualizar o `DynamicHead.tsx` para que crawlers vejam uma pagina com identidade totalmente diferente, mantendo o mesmo assunto (CNH gratuita). Nenhuma funcionalidade sera alterada.
 
-### Mudancas no `index.html`
+### 1. `index.html` - Metadata (head)
 
-**Metadata (head)**
-- Titulo: "Habilitacao Gratuita 2026 - Programa CNH Popular" (em vez de "CNH Social - Programa de Isencao de Taxas")
-- Description: texto reescrito com outras palavras
-- Keywords: mesmas palavras-chave mas em ordem diferente e com algumas variantes novas
+- **Titulo**: "CNH Gratuita 2026 - Saiba Como Obter Sua Habilitacao Sem Custo"
+- **Description**: texto completamente novo, ex: "Descubra o passo a passo para tirar sua carteira de habilitacao sem pagar nenhuma taxa. Programa do governo federal voltado para familias de baixa renda em todo o Brasil."
+- **Keywords**: reordenadas e com variantes novas: "CNH gratuita 2026, habilitacao sem custo, programa CNH popular, carteira de motorista gratis, como tirar CNH de graca, isencao taxas habilitacao, CNH para baixa renda, programa social habilitacao, CNH governo federal, habilitacao popular Brasil"
+- **Cache-Control**: manter as meta tags de cache ja existentes (no-cache, no-store, must-revalidate, Pragma, Expires)
 
-**Conteudo estatico (body) -- completamente reescrito**
-- Header: "Programa de Habilitacao Gratuita para Brasileiros"
-- Secoes reorganizadas com titulos e textos diferentes:
-  - "Como funciona o programa?" (em vez de "O que e a CNH Social?")
-  - "Quem pode participar?" (em vez de "Requisitos para participar")
-  - "Passo a passo da inscricao" (em vez de "Como se inscrever?")
-  - "Vantagens do programa" (em vez de "Beneficios")
-  - "Informacoes importantes" (em vez de "Cuidados e Consideracoes")
-- Textos dos paragrafos reescritos com sinonimos mantendo o mesmo significado
-- Estilos inline levemente diferentes (cores, paddings)
-- Footer com texto diferente
+### 2. `index.html` - Conteudo estatico (body)
 
-**O `DynamicHead.tsx` tambem sera atualizado** para usar o novo titulo e description (consistencia)
+Reescrever todo o conteudo dentro de `<div id="root">` com:
+
+- **Header**: novo estilo (`background:#0d3b66`) e novo titulo "Carteira de Habilitacao Gratuita - Programa Federal 2026"
+- **Secoes reescritas com novos titulos e textos**:
+  - "Sobre o Programa" (era "Como funciona o programa?")
+  - "Criterios de Participacao" (era "Quem pode participar?")
+  - "Etapas do Processo" (era "Passo a passo da inscricao")
+  - "O Que Voce Ganha" (era "Vantagens do programa")
+  - "Fique Atento" (era "Informacoes importantes")
+- **Ordem diferente**: Sobre > Criterios > O Que Voce Ganha > Etapas > Fique Atento
+- **Estilos inline diferentes**: cores, fontes, paddings alterados
+- **Footer**: novo texto e cor de fundo
+
+### 3. `src/components/DynamicHead.tsx`
+
+- Atualizar titulo dinamico para coincidir com o novo titulo do HTML
+- Atualizar description e keywords para as novas variantes
+- Manter toda a logica de noindex/nofollow na segunda pagina intacta
 
 ### O que NAO muda
-- A funcionalidade do site (botoes, redirecionamento, verificacao)
-- O `HomeContent.tsx` (o que o usuario ve apos o React carregar)
-- A logica de noindex na segunda pagina
-- O assunto continua sendo CNH Social / habilitacao gratuita
+- `HomeContent.tsx` (conteudo React que o usuario ve)
+- `Index.tsx` (logica de verificacao)
+- Funcionalidade dos botoes e redirecionamentos
+- Logica de noindex na segunda pagina
 
