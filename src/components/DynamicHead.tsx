@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "Habilitação Gratuita 2026 - Programa Nacional CNH Sem Custos";
-      setMeta("description", "Saiba como conseguir sua carteira de motorista gratuitamente pelo programa federal. Inscrições abertas para cidadãos de baixa renda cadastrados no CadÚnico em todos os estados.");
-      setMeta("keywords", "habilitação gratuita 2026, CNH sem custos programa federal, carteira de motorista gratuita Brasil, inscrição CNH popular, como conseguir habilitação grátis, programa nacional habilitação, CNH CadÚnico baixa renda, tirar carta de graça, habilitação social governo, CNH isenta taxas 2026");
+      document.title = "Carta de Motorista Grátis 2026 - Programa Federal de Habilitação Acessível";
+      setMeta("description", "Confira como participar do programa que permite obter a CNH sem nenhum gasto. Voltado a brasileiros inscritos no CadÚnico com renda familiar reduzida. Vagas em todos os estados.");
+      setMeta("keywords", "carta de motorista grátis 2026, CNH acessível programa federal, habilitação popular sem taxa, como obter CNH gratuita Brasil, programa federal habilitação acessível, CNH sem pagamento CadÚnico, tirar habilitação sem gastar, CNH inclusão social, programa habilitação cidadão, carteira gratuita governo 2026");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
