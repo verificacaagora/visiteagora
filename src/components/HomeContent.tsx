@@ -36,9 +36,9 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 max-w-xl">
               Saiba tudo sobre o programa que oferece a CNH gratuita para brasileiros de baixa renda. Consulte os requisitos e verifique sua elegibilidade.
             </p>
-            <button
+             <button
               onClick={onVerify}
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground border-none py-3.5 px-8 sm:py-4 sm:px-10 cursor-pointer rounded-xl text-base sm:text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
             >
               Consultar elegibilidade
               <ArrowRight className="w-5 h-5" />
