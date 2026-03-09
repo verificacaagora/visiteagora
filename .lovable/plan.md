@@ -1,40 +1,32 @@
 
 
-## Reescrever HTML Estatico + Cache + Keywords
+## Reescrever HTML Estatico para Nova Identidade de Crawler
 
-Vou reescrever completamente o conteudo estatico do `index.html` e atualizar o `DynamicHead.tsx` para que crawlers vejam uma pagina com identidade totalmente diferente, mantendo o mesmo assunto (CNH gratuita). Nenhuma funcionalidade sera alterada.
+Vou reescrever completamente o conteudo estatico e metadata para que crawlers vejam uma pagina totalmente diferente. Mesmo assunto (CNH gratuita), zero funcionalidade alterada.
 
-### 1. `index.html` - Metadata (head)
+### 1. `index.html` - Metadata
 
-- **Titulo**: "CNH Gratuita 2026 - Saiba Como Obter Sua Habilitacao Sem Custo"
-- **Description**: texto completamente novo, ex: "Descubra o passo a passo para tirar sua carteira de habilitacao sem pagar nenhuma taxa. Programa do governo federal voltado para familias de baixa renda em todo o Brasil."
-- **Keywords**: reordenadas e com variantes novas: "CNH gratuita 2026, habilitacao sem custo, programa CNH popular, carteira de motorista gratis, como tirar CNH de graca, isencao taxas habilitacao, CNH para baixa renda, programa social habilitacao, CNH governo federal, habilitacao popular Brasil"
-- **Cache-Control**: manter as meta tags de cache ja existentes (no-cache, no-store, must-revalidate, Pragma, Expires)
+- **Titulo**: "Carta de Motorista Grátis 2026 - Programa Federal de Habilitação Acessível"
+- **Description**: "Confira como participar do programa que permite obter a CNH sem nenhum gasto. Voltado a brasileiros inscritos no CadÚnico com renda familiar reduzida. Vagas em todos os estados."
+- **Keywords**: "carta de motorista grátis 2026, CNH acessível programa federal, habilitação popular sem taxa, como obter CNH gratuita Brasil, programa federal habilitação acessível, CNH sem pagamento CadÚnico, tirar habilitação sem gastar, CNH inclusão social, programa habilitação cidadão, carteira gratuita governo 2026"
 
 ### 2. `index.html` - Conteudo estatico (body)
 
-Reescrever todo o conteudo dentro de `<div id="root">` com:
+- **Header**: fundo `#2d3a4a`, fonte `Verdana`, titulo "Programa Federal de Habilitação Acessível - 2026"
+- **Secoes com nova ordem e novos titulos/textos**:
+  1. "Entenda a Proposta" - texto sobre o que e o programa
+  2. "Quais São as Condições" - requisitos reescritos
+  3. "Ganhos para o Participante" - beneficios
+  4. "Caminho até a Habilitação" - etapas de inscricao
+  5. "Pontos de Atenção" - cuidados
+- **Textos totalmente reescritos** com sinonimos e estrutura diferente
+- **Footer**: fundo `#374151`, texto novo
 
-- **Header**: novo estilo (`background:#0d3b66`) e novo titulo "Carteira de Habilitacao Gratuita - Programa Federal 2026"
-- **Secoes reescritas com novos titulos e textos**:
-  - "Sobre o Programa" (era "Como funciona o programa?")
-  - "Criterios de Participacao" (era "Quem pode participar?")
-  - "Etapas do Processo" (era "Passo a passo da inscricao")
-  - "O Que Voce Ganha" (era "Vantagens do programa")
-  - "Fique Atento" (era "Informacoes importantes")
-- **Ordem diferente**: Sobre > Criterios > O Que Voce Ganha > Etapas > Fique Atento
-- **Estilos inline diferentes**: cores, fontes, paddings alterados
-- **Footer**: novo texto e cor de fundo
+### 3. `DynamicHead.tsx`
 
-### 3. `src/components/DynamicHead.tsx`
-
-- Atualizar titulo dinamico para coincidir com o novo titulo do HTML
-- Atualizar description e keywords para as novas variantes
-- Manter toda a logica de noindex/nofollow na segunda pagina intacta
+- Sincronizar titulo, description e keywords com os novos valores
+- Manter logica noindex/nofollow intacta
 
 ### O que NAO muda
-- `HomeContent.tsx` (conteudo React que o usuario ve)
-- `Index.tsx` (logica de verificacao)
-- Funcionalidade dos botoes e redirecionamentos
-- Logica de noindex na segunda pagina
+- `HomeContent.tsx`, `Index.tsx`, funcionalidades, botoes, redirecionamentos
 
