@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "Carta de Motorista Grátis 2026 - Programa Federal de Habilitação Acessível";
-      setMeta("description", "Confira como participar do programa que permite obter a CNH sem nenhum gasto. Voltado a brasileiros inscritos no CadÚnico com renda familiar reduzida. Vagas em todos os estados.");
-      setMeta("keywords", "carta de motorista grátis 2026, CNH acessível programa federal, habilitação popular sem taxa, como obter CNH gratuita Brasil, programa federal habilitação acessível, CNH sem pagamento CadÚnico, tirar habilitação sem gastar, CNH inclusão social, programa habilitação cidadão, carteira gratuita governo 2026");
+      document.title = "CNH Social 2026 - Portal Informativo sobre Habilitação Gratuita";
+      setMeta("description", "Portal informativo sobre o programa CNH Social. Saiba como obter sua habilitação gratuitamente se você é inscrito no CadÚnico e atende aos requisitos de renda. Informações atualizadas para todos os estados.");
+      setMeta("keywords", "CNH social informativo 2026, portal habilitação gratuita, informações CNH popular, guia CNH grátis CadÚnico, programa habilitação isenção taxas, como tirar CNH social, site informativo CNH gratuita, orientação habilitação cidadão, CNH social requisitos estados");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
@@ -17,7 +17,6 @@ const DynamicHead = ({ verified }: DynamicHeadProps) => {
       removeMeta("keywords");
       setMeta("robots", "noindex, nofollow");
 
-      // Remove JSON-LD if exists
       const existing = document.getElementById("jsonld-cnhsocial");
       if (existing) existing.remove();
     }
