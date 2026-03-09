@@ -15,30 +15,30 @@ const Index = () => {
         </main>
       ) : (
         <main className="min-h-screen bg-background font-sans flex flex-col">
-          <header className="bg-primary text-primary-foreground py-6 px-4 shadow-lg">
-            <div className="max-w-4xl mx-auto flex items-center justify-center gap-3">
-              <Shield className="w-8 h-8" />
-              <h1 className="text-xl md:text-2xl font-bold tracking-tight">
-                CNH Social - Programa de Isenção de Taxas
+          <header className="bg-primary text-primary-foreground py-4 sm:py-6 px-4 shadow-lg">
+            <div className="max-w-4xl mx-auto flex items-center justify-center gap-2 sm:gap-3">
+              <Shield className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
+              <h1 className="text-base sm:text-xl md:text-2xl font-bold tracking-tight text-center">
+                CNH Social - Isenção de Taxas
               </h1>
             </div>
           </header>
 
           <div className="flex-1 flex items-center justify-center p-4">
             <div className="max-w-lg w-full animate-fade-in">
-              <div className="bg-card text-card-foreground rounded-xl shadow-xl border border-border p-8 md:p-10 text-center">
-                <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                  <CheckCircle className="w-8 h-8 text-primary" />
+              <div className="bg-card text-card-foreground rounded-xl shadow-xl border border-border p-6 sm:p-8 md:p-10 text-center">
+                <div className="mx-auto w-14 h-14 sm:w-16 sm:h-16 bg-primary/10 rounded-full flex items-center justify-center mb-5 sm:mb-6">
+                  <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
                 </div>
-                <h2 className="text-primary text-xl md:text-2xl font-bold mb-3">
+                <h2 className="text-primary text-lg sm:text-xl md:text-2xl font-bold mb-3">
                   Verifique sua elegibilidade
                 </h2>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 sm:mb-8">
                   Clique no botão abaixo para verificar se você tem direito ao programa CNH Social.
                 </p>
                 <button
                   onClick={() => window.location.href = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
-                  className="bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold block mx-auto shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+                  className="w-full sm:w-auto bg-accent text-accent-foreground border-none py-3.5 px-8 sm:py-4 sm:px-10 cursor-pointer rounded-lg text-base sm:text-lg font-semibold block mx-auto shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
                 >
                   Verificar agora
                 </button>

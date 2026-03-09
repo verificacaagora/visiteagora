@@ -23,7 +23,7 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
       {/* Hero */}
       <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.08),transparent_50%)]" />
-        <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-24">
+        <div className="relative max-w-5xl mx-auto px-4 py-10 sm:py-16 md:py-24">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
               <Info className="w-3.5 h-3.5" />
@@ -36,9 +36,9 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
             <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 max-w-xl">
               Saiba tudo sobre o programa que oferece a CNH gratuita para brasileiros de baixa renda. Consulte os requisitos e verifique sua elegibilidade.
             </p>
-            <button
+             <button
               onClick={onVerify}
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground border-none py-3.5 px-8 sm:py-4 sm:px-10 cursor-pointer rounded-xl text-base sm:text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
             >
               Consultar elegibilidade
               <ArrowRight className="w-5 h-5" />
@@ -70,7 +70,7 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-4 py-12 pb-24">
+      <div className="max-w-5xl mx-auto px-4 py-8 sm:py-12 pb-16 sm:pb-24">
         {/* Two-column grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* O que é */}
@@ -180,16 +180,16 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
         </div>
 
         {/* CTA final */}
-        <div className="bg-gradient-to-br from-primary/5 via-primary/10 to-accent/5 rounded-2xl border border-primary/20 p-8 md:p-12 text-center">
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+        <div className="bg-gradient-to-br from-primary/5 via-primary/10 to-accent/5 rounded-2xl border border-primary/20 p-6 sm:p-8 md:p-12 text-center">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-foreground mb-3">
             Descubra se você tem direito
           </h2>
-          <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-lg mx-auto">
+          <p className="text-muted-foreground text-sm leading-relaxed mb-6 sm:mb-8 max-w-lg mx-auto">
             Faça uma consulta rápida e descubra se você atende aos critérios do programa CNH Social. É simples, rápido e totalmente gratuito.
           </p>
           <button
             onClick={onVerify}
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground border-none py-3.5 px-8 sm:py-4 sm:px-10 cursor-pointer rounded-xl text-base sm:text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
           >
             Verificar elegibilidade
             <ArrowRight className="w-5 h-5" />
