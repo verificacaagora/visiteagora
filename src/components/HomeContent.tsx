@@ -70,7 +70,7 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
       </div>
 
       {/* Content */}
-      <div className="max-w-5xl mx-auto px-4 py-12 pb-24">
+      <div className="max-w-5xl mx-auto px-4 py-8 sm:py-12 pb-16 sm:pb-24">
         {/* Two-column grid */}
         <div className="grid md:grid-cols-2 gap-6 mb-8">
           {/* O que é */}
