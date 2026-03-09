@@ -23,7 +23,7 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
       {/* Hero */}
       <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.08),transparent_50%)]" />
-        <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-24">
+        <div className="relative max-w-5xl mx-auto px-4 py-10 sm:py-16 md:py-24">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
               <Info className="w-3.5 h-3.5" />
