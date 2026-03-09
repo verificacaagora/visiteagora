@@ -1,155 +1,195 @@
-import { Shield, FileCheck, ClipboardList, Gift, AlertTriangle, ArrowRight } from "lucide-react";
+import { Shield, FileCheck, ClipboardList, Gift, AlertTriangle, ArrowRight, Info, BookOpen, Users, MapPin } from "lucide-react";
 
 interface HomeContentProps {
   onVerify: () => void;
 }
 
-const SectionCard = ({ icon: Icon, title, children }: { icon: React.ElementType; title: string; children: React.ReactNode }) => (
-  <section className="animate-fade-in">
-    <div className="flex items-center gap-3 mb-4">
-      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-        <Icon className="w-5 h-5 text-primary" />
-      </div>
-      <h2 className="text-primary text-lg md:text-xl font-bold">{title}</h2>
-    </div>
-    {children}
-  </section>
-);
-
 const HomeContent = ({ onVerify }: HomeContentProps) => {
   return (
     <>
       {/* Header */}
-      <header className="bg-primary text-primary-foreground py-6 px-4 shadow-lg">
-        <div className="max-w-4xl mx-auto flex items-center justify-center gap-3">
-          <Shield className="w-8 h-8" />
-          <h1 className="text-xl md:text-2xl font-bold tracking-tight">
-            CNH Social - Programa de Isenção de Taxas
-          </h1>
+      <header className="bg-primary text-primary-foreground py-5 px-4 shadow-lg">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <Shield className="w-7 h-7" />
+            <span className="text-lg font-bold tracking-tight">CNH Social</span>
+          </div>
+          <span className="hidden sm:inline text-xs opacity-80 bg-primary-foreground/10 px-3 py-1 rounded-full">
+            Portal Informativo
+          </span>
         </div>
       </header>
 
-      {/* Hero CTA */}
-      <div className="bg-gradient-to-b from-primary/5 to-background py-10 px-4">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-muted-foreground text-sm md:text-base mb-6 leading-relaxed">
-            Verifique agora se você tem direito à isenção de taxas para obter sua CNH gratuitamente.
-          </p>
-          <button
-            onClick={onVerify}
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
-          >
-            Verificar agora
-            <ArrowRight className="w-5 h-5" />
-          </button>
+      {/* Hero */}
+      <div className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-accent/5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.08),transparent_50%)]" />
+        <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-24">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+              <Info className="w-3.5 h-3.5" />
+              Site informativo sobre o programa CNH Social
+            </div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-foreground leading-tight mb-4">
+              Programa CNH Social
+              <span className="block text-primary mt-1">Isenção de Taxas para Habilitação</span>
+            </h1>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+              Saiba tudo sobre o programa que oferece a CNH gratuita para brasileiros de baixa renda. Consulte os requisitos e verifique sua elegibilidade.
+            </p>
+            <button
+              onClick={onVerify}
+              className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+            >
+              Consultar elegibilidade
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats strip */}
+      <div className="bg-card border-y border-border">
+        <div className="max-w-5xl mx-auto px-4 py-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { icon: Users, label: "Beneficiários", value: "Milhares" },
+            { icon: MapPin, label: "Abrangência", value: "Todos os estados" },
+            { icon: BookOpen, label: "Tipo", value: "Programa federal" },
+            { icon: Gift, label: "Custo", value: "100% gratuito" },
+          ].map((stat, i) => (
+            <div key={i} className="flex items-center gap-3 justify-center">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <stat.icon className="w-5 h-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-xs text-muted-foreground">{stat.label}</p>
+                <p className="text-sm font-bold text-foreground">{stat.value}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
       {/* Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8 pb-24 space-y-8">
-        {/* O que é */}
-        <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
-          <SectionCard icon={FileCheck} title="O que é a CNH Social?">
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              O programa CNH Social, também conhecido como CNH Popular, foi criado pelo governo federal para oferecer a isenção de taxas relacionadas à obtenção da Carteira Nacional de Habilitação (CNH) para pessoas de baixa renda. O objetivo é proporcionar acesso a essa documentação para que mais brasileiros possam entrar no mercado de trabalho, já que a CNH é exigida em muitas vagas de emprego, principalmente em áreas de transporte e logística.
-            </p>
-          </SectionCard>
-        </div>
-
-        {/* Requisitos */}
-        <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
-          <SectionCard icon={ClipboardList} title="Requisitos para participar">
-            <p className="text-muted-foreground text-sm mb-3">
-              Para poder se inscrever no programa CNH Social, o candidato deve atender a alguns critérios:
-            </p>
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              {[
-                "Ser maior de 18 anos.",
-                "Estar inscrito no Cadastro Único (CadÚnico) para Programas Sociais do Governo Federal.",
-                "Ter uma renda per capita de até 2 salários mínimos.",
-                "Não possuir CNH ou estar com a habilitação suspensa.",
-                "Residir no estado onde o programa está sendo oferecido.",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </SectionCard>
-        </div>
-
-        {/* Como se inscrever */}
-        <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
-          <SectionCard icon={ClipboardList} title="Como se inscrever?">
-            <p className="text-muted-foreground text-sm mb-3">
-              A inscrição deve ser feita de acordo com o estado onde você reside:
-            </p>
-            <div className="space-y-3">
-              {[
-                { step: "1", title: "Cadastro no CadÚnico", desc: "É necessário estar inscrito no Cadastro Único do Governo Federal." },
-                { step: "2", title: "Acompanhamento do Edital", desc: "Acesse o site do Detran do seu estado e verifique se o programa está disponível." },
-                { step: "3", title: "Inscrição", desc: "Realize a inscrição dentro do prazo estabelecido no edital." },
-                { step: "4", title: "Seleção e Resultados", desc: "Após a inscrição, será realizada uma seleção dos candidatos." },
-              ].map((item) => (
-                <div key={item.step} className="flex items-start gap-3">
-                  <span className="w-7 h-7 rounded-full bg-primary text-primary-foreground text-xs font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
-                    {item.step}
-                  </span>
-                  <div>
-                    <span className="font-semibold text-sm text-foreground">{item.title}:</span>
-                    <span className="text-muted-foreground text-sm ml-1">{item.desc}</span>
-                  </div>
-                </div>
-              ))}
+      <div className="max-w-5xl mx-auto px-4 py-12 pb-24">
+        {/* Two-column grid */}
+        <div className="grid md:grid-cols-2 gap-6 mb-8">
+          {/* O que é */}
+          <div className="bg-card text-card-foreground rounded-2xl shadow-md border border-border p-6 md:p-8 hover:shadow-lg transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+              <FileCheck className="w-6 h-6 text-primary" />
             </div>
-          </SectionCard>
-        </div>
+            <h2 className="text-foreground text-lg font-bold mb-3">O que é a CNH Social?</h2>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              A CNH Social é um programa governamental que visa oferecer isenção total das taxas de habilitação para cidadãos de baixa renda inscritos no CadÚnico. Este portal informativo reúne as principais informações sobre como funciona o programa e quem pode participar.
+            </p>
+          </div>
 
-        {/* Benefícios */}
-        <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
-          <SectionCard icon={Gift} title="Benefícios da CNH Social">
-            <ul className="space-y-2 text-sm text-muted-foreground">
+          {/* Benefícios */}
+          <div className="bg-card text-card-foreground rounded-2xl shadow-md border border-border p-6 md:p-8 hover:shadow-lg transition-shadow">
+            <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+              <Gift className="w-6 h-6 text-accent" />
+            </div>
+            <h2 className="text-foreground text-lg font-bold mb-3">Benefícios do Programa</h2>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
               {[
-                "Isenção das taxas de inscrição, exame médico, psicológico, e de emissão da CNH.",
-                "Aumento das oportunidades de emprego.",
-                "Facilidade no transporte e mobilidade.",
+                "Isenção total das taxas de inscrição, exames e emissão da CNH",
+                "Mais oportunidades no mercado de trabalho formal",
+                "Maior mobilidade e independência para toda a família",
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
+                <li key={i} className="flex items-start gap-2.5">
+                  <span className="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                  </span>
                   {item}
                 </li>
               ))}
             </ul>
-          </SectionCard>
+          </div>
         </div>
 
-        {/* Cuidados */}
-        <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
-          <SectionCard icon={AlertTriangle} title="Cuidados e Considerações">
-            <ul className="space-y-2 text-sm text-muted-foreground">
-              {[
-                "Verifique se o programa está disponível no seu estado.",
-                "Atenção aos requisitos e prazos de inscrição.",
-                "Após a obtenção da CNH, siga todas as normas de trânsito.",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-destructive mt-2 flex-shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </SectionCard>
+        {/* Requisitos - full width */}
+        <div className="bg-card text-card-foreground rounded-2xl shadow-md border border-border p-6 md:p-8 mb-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <ClipboardList className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h2 className="text-foreground text-lg font-bold">Quem pode participar?</h2>
+              <p className="text-muted-foreground text-xs">Critérios de elegibilidade do programa</p>
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {[
+              { title: "Idade mínima", desc: "Ter 18 anos completos na data da inscrição" },
+              { title: "Cadastro Único", desc: "Estar inscrito e com cadastro atualizado no CadÚnico" },
+              { title: "Renda familiar", desc: "Renda per capita de até 2 salários mínimos" },
+              { title: "Sem CNH ativa", desc: "Não possuir CNH ou estar com habilitação suspensa" },
+              { title: "Residência", desc: "Morar no estado onde o programa está sendo oferecido" },
+              { title: "Documentação", desc: "Apresentar documentos pessoais válidos e atualizados" },
+            ].map((item, i) => (
+              <div key={i} className="bg-muted/50 rounded-xl p-4 border border-border/50">
+                <p className="text-sm font-semibold text-foreground mb-1">{item.title}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Conclusão */}
-        <div className="bg-primary/5 rounded-xl border border-primary/20 p-6 md:p-8 text-center">
-          <p className="text-foreground text-sm leading-relaxed mb-6">
-            O programa CNH Social é uma grande oportunidade para quem busca uma nova oportunidade no mercado de trabalho e não tem condições de arcar com os custos da obtenção da CNH.
+        {/* Como funciona */}
+        <div className="bg-card text-card-foreground rounded-2xl shadow-md border border-border p-6 md:p-8 mb-8 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-5">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <BookOpen className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h2 className="text-foreground text-lg font-bold">Como funciona o processo?</h2>
+              <p className="text-muted-foreground text-xs">Etapas para participar do programa</p>
+            </div>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {[
+              { step: "01", title: "Cadastro no CadÚnico", desc: "Procure o CRAS da sua região para realizar ou atualizar seu cadastro social." },
+              { step: "02", title: "Acompanhe os editais", desc: "Verifique no site do Detran do seu estado a abertura de novas vagas." },
+              { step: "03", title: "Faça sua inscrição", desc: "Preencha o formulário dentro do prazo do edital vigente." },
+              { step: "04", title: "Aguarde a seleção", desc: "Os candidatos selecionados serão convocados conforme critérios de prioridade." },
+            ].map((item) => (
+              <div key={item.step} className="flex items-start gap-4 bg-muted/30 rounded-xl p-4 border border-border/30">
+                <span className="text-2xl font-black text-primary/20 leading-none mt-0.5">{item.step}</span>
+                <div>
+                  <p className="font-semibold text-sm text-foreground mb-1">{item.title}</p>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Aviso */}
+        <div className="bg-destructive/5 rounded-2xl border border-destructive/20 p-5 md:p-6 mb-8">
+          <div className="flex items-start gap-3">
+            <AlertTriangle className="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" />
+            <div>
+              <h3 className="text-sm font-bold text-foreground mb-2">Informações importantes</h3>
+              <ul className="space-y-1.5 text-xs text-muted-foreground">
+                <li>• Este é um site informativo. Consulte sempre o Detran do seu estado para informações oficiais.</li>
+                <li>• A disponibilidade de vagas varia de acordo com cada unidade federativa.</li>
+                <li>• Fique atento aos prazos de inscrição publicados nos editais oficiais.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA final */}
+        <div className="bg-gradient-to-br from-primary/5 via-primary/10 to-accent/5 rounded-2xl border border-primary/20 p-8 md:p-12 text-center">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">
+            Descubra se você tem direito
+          </h2>
+          <p className="text-muted-foreground text-sm leading-relaxed mb-8 max-w-lg mx-auto">
+            Faça uma consulta rápida e descubra se você atende aos critérios do programa CNH Social. É simples, rápido e totalmente gratuito.
           </p>
           <button
             onClick={onVerify}
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-3 px-8 cursor-pointer rounded-lg text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
           >
             Verificar elegibilidade
             <ArrowRight className="w-5 h-5" />
@@ -158,8 +198,15 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-foreground text-background text-center py-4 px-4">
-        <p className="text-sm opacity-80">&copy; 2026 CNH Social - Todos os direitos reservados</p>
+      <footer className="bg-card border-t border-border py-6 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <p className="text-xs text-muted-foreground mb-1">
+            Este é um portal informativo sobre o programa CNH Social. Não possui vínculo com órgãos governamentais.
+          </p>
+          <p className="text-xs text-muted-foreground opacity-60">
+            &copy; 2026 CNH Social Info - Todos os direitos reservados
+          </p>
+        </div>
       </footer>
     </>
   );
