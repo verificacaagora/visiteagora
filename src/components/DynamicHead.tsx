@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "Guia da Habilitação Popular 2026 - Direitos do Cidadão Brasileiro";
-      setMeta("description", "Conheça os direitos do cidadão de baixa renda para obtenção da carteira de motorista sem custos. Guia completo com critérios, documentação necessária e orientações por estado.");
-      setMeta("keywords", "habilitação popular gratuita 2026, carteira de motorista sem custo, direito cidadão habilitação, guia CNH isenção completa, programa social carteira motorista, como conseguir habilitação grátis, benefício trânsito baixa renda, cadastro único habilitação, detran programa social");
+      document.title = "CNH Gratuita 2026 - Como Tirar Sua Carteira Sem Pagar";
+      setMeta("description", "Saiba como obter sua CNH totalmente gratuita pelo programa do governo. Veja quem tem direito, quais os requisitos e como se inscrever no programa CNH Social 2026.");
+      setMeta("keywords", "CNH gratuita 2026, como tirar CNH de graça, programa CNH social, habilitação gratuita governo, carteira de motorista grátis, isenção taxa habilitação, CNH para baixa renda, inscrição CNH gratuita, primeira habilitação grátis, detran CNH social");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
