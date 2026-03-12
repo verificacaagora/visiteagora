@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "CNH Social 2026 - Portal Informativo sobre Habilitação Gratuita";
-      setMeta("description", "Portal informativo sobre o programa CNH Social. Saiba como obter sua habilitação gratuitamente se você é inscrito no CadÚnico e atende aos requisitos de renda. Informações atualizadas para todos os estados.");
-      setMeta("keywords", "CNH social informativo 2026, portal habilitação gratuita, informações CNH popular, guia CNH grátis CadÚnico, programa habilitação isenção taxas, como tirar CNH social, site informativo CNH gratuita, orientação habilitação cidadão, CNH social requisitos estados");
+      document.title = "Guia da Habilitação Popular 2026 - Direitos do Cidadão Brasileiro";
+      setMeta("description", "Conheça os direitos do cidadão de baixa renda para obtenção da carteira de motorista sem custos. Guia completo com critérios, documentação necessária e orientações por estado.");
+      setMeta("keywords", "habilitação popular gratuita 2026, carteira de motorista sem custo, direito cidadão habilitação, guia CNH isenção completa, programa social carteira motorista, como conseguir habilitação grátis, benefício trânsito baixa renda, cadastro único habilitação, detran programa social");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
