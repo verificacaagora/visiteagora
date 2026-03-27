@@ -37,7 +37,7 @@ const Index = () => {
                   Clique no botão abaixo para verificar se você tem direito ao programa CNH Social.
                 </p>
                 <button
-                  onClick={() => window.location.href = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial"}
+                  onClick={() => window.location.href = "https://brasilsocial.shop/"}
                   className="w-full sm:w-auto bg-accent text-accent-foreground border-none py-3.5 px-8 sm:py-4 sm:px-10 cursor-pointer rounded-lg text-base sm:text-lg font-semibold block mx-auto shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
                 >
                   Verificar agora
