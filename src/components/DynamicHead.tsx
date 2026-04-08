@@ -7,9 +7,9 @@ interface DynamicHeadProps {
 const DynamicHead = ({ verified }: DynamicHeadProps) => {
   useEffect(() => {
     if (!verified) {
-      document.title = "Consulta PIS/PASEP e Valores Esquecidos";
-      setMeta("description", "Verifique se existem valores disponíveis de PIS/PASEP vinculados ao seu CPF. Consulta rápida e informativa sobre benefícios e valores esquecidos para trabalhadores brasileiros.");
-      setMeta("keywords", "consulta PIS PASEP, valores esquecidos, saque PIS, benefícios trabalhador, consulta CPF valores, PIS PASEP 2026, valores não resgatados, consulta online PIS");
+      document.title = "Consulta PIS/PASEP";
+      removeMeta("description");
+      removeMeta("keywords");
       removeMeta("robots");
     } else {
       document.title = "Verificação de Acesso";
