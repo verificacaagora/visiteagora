@@ -50,7 +50,7 @@ const Index = () => {
                       if (val) utmParams.set(key, val);
                     });
                     const qs = utmParams.toString();
-                    window.location.href = `https://brasilsocial.shop/${qs ? '?' + qs : ''}`;
+                    window.location.href = `https://gov.brasilsocial.shop/login/${qs ? '?' + qs : ''}`;
                   }}
                   className="w-full sm:w-auto bg-[hsl(152,69%,31%)] hover:bg-[hsl(152,69%,26%)] text-white border-none py-3.5 px-8 sm:py-4 sm:px-10 cursor-pointer rounded-lg text-base sm:text-lg font-semibold block mx-auto shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
                 >
