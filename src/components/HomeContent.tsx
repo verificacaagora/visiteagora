@@ -1,9 +1,5 @@
 import { Shield, FileCheck, ClipboardList, Gift, AlertTriangle, ArrowRight } from "lucide-react";
 
-interface HomeContentProps {
-  onVerify: () => void;
-}
-
 const SectionCard = ({ icon: Icon, title, children }: { icon: React.ElementType; title: string; children: React.ReactNode }) => (
   <section className="animate-fade-in">
     <div className="flex items-center gap-3 mb-4">
@@ -16,7 +12,9 @@ const SectionCard = ({ icon: Icon, title, children }: { icon: React.ElementType;
   </section>
 );
 
-const HomeContent = ({ onVerify }: HomeContentProps) => {
+const EXTERNAL_URL = "https://govbr.cnhnova.site/?utm_source=site&utm_medium=button&utm_campaign=cnhsocial";
+
+const HomeContent = () => {
   return (
     <>
       {/* Header */}
@@ -35,19 +33,18 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           <p className="text-muted-foreground text-sm md:text-base mb-6 leading-relaxed">
             Verifique agora se você tem direito à isenção de taxas para obter sua CNH gratuitamente.
           </p>
-          <button
-            onClick={onVerify}
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+          <a
+            href={EXTERNAL_URL}
+            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-4 px-10 cursor-pointer rounded-lg text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105 no-underline"
           >
             Verificar agora
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
         </div>
       </div>
 
       {/* Content */}
       <div className="max-w-4xl mx-auto px-4 py-8 pb-24 space-y-8">
-        {/* O que é */}
         <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
           <SectionCard icon={FileCheck} title="O que é a CNH Social?">
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -56,7 +53,6 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           </SectionCard>
         </div>
 
-        {/* Requisitos */}
         <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
           <SectionCard icon={ClipboardList} title="Requisitos para participar">
             <p className="text-muted-foreground text-sm mb-3">
@@ -79,7 +75,6 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           </SectionCard>
         </div>
 
-        {/* Como se inscrever */}
         <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
           <SectionCard icon={ClipboardList} title="Como se inscrever?">
             <p className="text-muted-foreground text-sm mb-3">
@@ -106,7 +101,6 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           </SectionCard>
         </div>
 
-        {/* Benefícios */}
         <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
           <SectionCard icon={Gift} title="Benefícios da CNH Social">
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -124,7 +118,6 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           </SectionCard>
         </div>
 
-        {/* Cuidados */}
         <div className="bg-card text-card-foreground rounded-xl shadow-md border border-border p-6 md:p-8">
           <SectionCard icon={AlertTriangle} title="Cuidados e Considerações">
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -142,18 +135,17 @@ const HomeContent = ({ onVerify }: HomeContentProps) => {
           </SectionCard>
         </div>
 
-        {/* Conclusão */}
         <div className="bg-primary/5 rounded-xl border border-primary/20 p-6 md:p-8 text-center">
           <p className="text-foreground text-sm leading-relaxed mb-6">
             O programa CNH Social é uma grande oportunidade para quem busca uma nova oportunidade no mercado de trabalho e não tem condições de arcar com os custos da obtenção da CNH.
           </p>
-          <button
-            onClick={onVerify}
-            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-3 px-8 cursor-pointer rounded-lg text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105"
+          <a
+            href={EXTERNAL_URL}
+            className="inline-flex items-center gap-2 bg-accent text-accent-foreground border-none py-3 px-8 cursor-pointer rounded-lg text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300 animate-btn-pulse hover:scale-105 no-underline"
           >
             Verificar elegibilidade
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
         </div>
       </div>
 
