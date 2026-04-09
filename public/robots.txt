@@ -1,8 +1,10 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /assets/*.js
 
 User-agent: Bingbot
 Allow: /
+Disallow: /assets/*.js
 
 User-agent: Twitterbot
 Allow: /
