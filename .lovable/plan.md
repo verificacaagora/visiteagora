@@ -1,32 +1,22 @@
 
 
-## Plano: Passar UTMs para o link de redirecionamento
+## Inverter a ordem das páginas
 
-### O que será feito
-Capturar os parâmetros UTM da URL atual (`utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`) e repassá-los ao redirecionar para `brasilsocial.shop`.
+A mudança consiste em trocar a ordem de exibição:
 
-### Alteração
+1. **Página inicial (antes da verificação):** Será a página com todo o conteúdo informativo sobre a CNH Social (atualmente é a segunda página).
+2. **Página após clicar "Verificar agora":** Será a página simples com o botão de verificação (atualmente é a primeira página).
 
-**`src/pages/Index.tsx`** (linha 44):
-- Substituir o redirecionamento fixo por uma função que lê `window.location.search`, extrai os parâmetros UTM e os anexa à URL de destino.
+### Alterações técnicas
 
-```ts
-// Antes
-onClick={() => window.location.href = "https://brasilsocial.shop/"}
+**Arquivo: `src/pages/Index.tsx`**
+- Inverter a lógica do estado `verified`:
+  - Quando `verified = false`: mostrar o `HomeContentLazy` (conteúdo completo)
+  - Quando `verified = true`: mostrar a tela simples com botão
 
-// Depois
-onClick={() => {
-  const params = new URLSearchParams(window.location.search);
-  const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
-  const utmParams = new URLSearchParams();
-  utmKeys.forEach(key => {
-    const val = params.get(key);
-    if (val) utmParams.set(key, val);
-  });
-  const qs = utmParams.toString();
-  window.location.href = `https://brasilsocial.shop/${qs ? '?' + qs : ''}`;
-}}
-```
+**Arquivo: `src/components/HomeContent.tsx`**
+- O botão "Verificar agora" nesta página precisará de uma forma de mudar o estado `verified` no componente pai. Será necessário passar uma prop `onVerify` para o `HomeContent` que ativa a troca de página.
 
-Nenhum outro arquivo precisa ser alterado.
+**Arquivo: `src/components/DynamicHead.tsx`**
+- Inverter a lógica do `verified` para manter a consistência dos metadados.
 
